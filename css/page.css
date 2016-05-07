@@ -1,0 +1,229 @@
+body, html, input, textarea, select{
+	color: #4d4d4d;
+    font: 14px "Helvetica Neue",Arial,Helvetica,sans-serif;
+    line-height: 18px;
+}
+
+body{
+	width: 100%;
+	overflow-y:auto;
+}
+
+#header{
+	width: 100%;
+	height: 40px;
+	/*background-color: #1e88e5;
+	color:rgba(255,255,255,1);*/
+	background-color: white;
+	color: rgba(0,0,0,0.5);
+	line-height: 40px;
+	text-align: center;
+}
+
+#board_info{
+
+	width: 100%;
+	height: 40px;
+	color:rgba(0,0,0,0.5);
+	line-height: 40px;
+	font-size: 20px;
+	margin: 10px 0 10px 20px;
+}
+
+#board_canvas{
+
+	width: 100%;
+	height: 100%;
+/*	border:1px solid black;*/
+    position: relative;
+    white-space: nowrap;
+}
+
+#board_canvas .list_wrapper{
+
+    width: 270px;
+    margin: 0 5px;
+    height: 100%;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+	cursor: pointer;
+	float:left;
+}
+
+#board_canvas .list_wrapper .list_content{
+
+	background: #e2e4e6;
+    border-radius: 3px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    position: relative;
+    white-space: normal;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    white-space: nowrap;
+}
+
+.list_header{
+	width: 100%;
+	display: table;
+	padding: 10px 0 0 10px;
+	/*font: 14px "Helvetica Neue",Arial,Helvetica,sans-serif;*/
+	font:Roboto;
+	margin-bottom: 5px;
+}
+
+.list_header textarea{
+	flex-direction: column;
+    resize: auto;
+    cursor: auto;
+    white-space: pre-wrap;
+    background: 0 0;
+    border: none;
+    border-radius: 3px;
+    box-shadow: none;
+    font-weight: 700;
+    margin: -3px -5px;
+    min-height: 18px;
+    padding: 3px 5px;
+    resize: none;
+    transition: background 85ms ease-in,border-color 85ms ease-in;
+    width: 100%;
+    color: #4d4d4d;
+    font: 14px "Helvetica Neue",Arial,Helvetica,sans-serif;
+    line-height: 18px;
+    -webkit-rtl-ordering: logical;
+    -webkit-user-select: text;
+    flex-direction: column;
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    color: #4d4d4d;
+    font: 14px "Helvetica Neue",Arial,Helvetica,sans-serif;
+    line-height: 18px;
+    height: 24px;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: start;
+}
+
+.add_card{
+
+	border-radius: 0 0 3px 3px;
+    color: #8c8c8c;
+    display: block;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    padding: 8px 10px;
+    position: relative;
+    text-decoration: none;
+    
+}
+
+
+.add_list{
+
+	background: rgba(0,0,0,.12);
+    cursor: pointer;
+    float:left;
+    width: 270px;
+    border-radius: 3px;
+    margin: 0 5px;
+    white-space: nowrap;
+}
+
+
+.placeholder{
+	display: block;
+	padding: 7px;
+    color: rgba(0,0,0,.5);
+    padding: 7px;
+}
+
+.list_name_input{
+
+	 background: 0 0;
+    border-color: transparent;
+    box-shadow: none;
+    cursor: pointer;
+    display: none;
+    margin: 0;
+    -webkit-writing-mode: horizontal-tb;
+}
+
+.list_cards{
+
+	overflow-y: overlay;
+    margin-right: 2px;
+    padding: 0 9px 0 5px;
+    flex: 1 1 auto;
+    margin: 0 4px;
+    z-index: 1;
+    min-height: 0;
+}
+
+
+
+.list_card{
+	background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-bottom: 6px;
+    max-width: 300px;
+    min-height: 20px;
+    position: relative;
+    z-index: 0;
+}
+
+.list_card .list_card_detail{
+
+	overflow: hidden;
+    padding: 6px 6px 2px 8px;
+    position: relative;
+    z-index: 10;
+    background: 0 0;
+        white-space: normal;
+}
+
+.list_card_detail .list_card_title{
+
+	clear: both;
+    display: block;
+    font-weight: 400;
+    margin: 0 0 4px;
+    overflow: hidden;
+    text-decoration: none;
+    word-wrap: break-word;
+    color:#4d4d4d;
+
+}
+
+.list_card_detail .list_card_title a{
+
+	background-color: transparent;
+}
+
+}
+
+/*<div class-"list_header">
+                <textarea class="list-header-name"></textarea>
+              </div>
+              <div class="list_cards"></div>
+              <div class="add_card"></div>*/
+
