@@ -1,14 +1,16 @@
 <html>
     <head>
+      <meta charset="utf-8">
       <!--Import Google Icon Font-->
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
       <link type="text/css" rel="stylesheet" href="css/page.css"  media="screen,projection"/>    
-      <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+   <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
-          
-
+    
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
@@ -22,71 +24,101 @@
                 <div class="list_header">
                   <textarea class="list_header_name">First Todo</textarea>
                 </div>
-                <div class="list_cards"></div>
-              <a class="add_card" href="#">Add a Card...</a>
+
+                <div class="list_cards">
+                </div>
+
+                 <div class="card_composer">
+                    <div class="add_card_form">
+                      <textarea class="list_card_composer_textarea"></textarea>
+                       <a class="waves-effect  waves-light btn card_save blue-grey lighten-5">save</a>
+                       <a class="waves-effect waves-light btn card_cancel blue-grey lighten-5">cancel</a>
+                    </div>
+                    <a class="add_card" href="#">Add a Card...</a>
+                </div>
+             
             </div>  
           </div>
 
 
-     
-          <div class="list_wrapper">
-            <div class="list_content z-depth-1">
-                <div class="list_header">
-                  <textarea class="list_header_name">First Todo</textarea>
-                </div>
+        <!--add_list button-->
 
-                <div class="list_cards">
-                    <div class="list_card">
-                      <div class="list_card_detail">
-                        <a class="list_card_title" dir="auto" href="#">
-                          first week
-                        </a>
-                      </div>
-                    </div>
-                    <div class="badged">
-                        <div title="comment" class="badge">
-                            <span class="badge_icon icon_comment">
-                            </span>
-                            <span class="badge_text">
-                            </span>
-                        </div>
-                        <div title="Attachments" class="badge">
-                              <span class="badge_icon icon_attachment">
-                              </span>
-                              <span class="badge-text">
-                              </span>
-                        </div>
-                    </div>
-
-                    <span></span>
-
-
-
-                </div>
-             
-              <a class="add_card" href="#">Add a Card...</a>
-                </div>
-          </div>
-
-
-
-          <div class="add_list z-depth-1">
-                <form>
-                  <span class="placeholder open_add_list">
-                      Add a list...
-                  </span>
-                     <input class="list_name_input" type="text" name="name" placeholder="Add a list...">
+          <div class="add_list" >
+             <a class="btn-floating btn-large waves-effect waves-light red">
+                    <i class="material-icons">add</i>
+              </a>
+                <form class="add_list_form">
+                  <div class="input-field col s12">
+                      <input id="add_list" type="text" class="validate">
+                        <label for="list_name">Add a list...</label></br>
+                         <a class="waves-effect waves-light btn save blue-grey lighten-5">save</a>
+                        <a class="waves-effect waves-light btn cancel blue-grey lighten-5">cancel</a>
+                  </div>
                 </form>
           </div>
 
-       </div>
 
+
+
+
+     <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+         <div class="modal_header">
+            <span class="modal_header_icon"></span>
+            <div class="modal_title">
+              <h2>Modal Header</h2>
+              <textarea class="modal_card_back_title" dir="auto">card name</textarea>
+            </div>
+         </div>
+         <div class="modal_header_inline_content">
+            <p class="u_inline_block u_bottom">
+                "in list "
+                <a class="js_open_move_from_header" href="#">list name</a>
+            </p>
+         </div>
+
+         <div class="modal_main_col">
+            <div class="card_detail_data u_gutter">Edit the description</div>
+            <div class="add_comment_section">
+                <div class="add_comment_title">
+                    <span class="add_comment_icon"></span>
+                    <h3>Add Comment</h3>
+                </div>
+                <div class="add_comment_contents">
+                    <div class="member"></div>
+                    <form>
+                        <div class="comment_frame"><div>
+                    </form>
+                </div>
+            </div>
+
+         </div>
+
+
+
+         <div class="window_sidebar"></div>
+
+          <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">asd</a>
+          </div>
+
+        </div>
 
       <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js">
-      </script>
+
+      <script>
+  $(function() {
+    $( "#board_canvas" ).sortable();
+    $( "#board_canvas" ).disableSelection();
+  });
+  </script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
       <script type="text/javascript" src="js/page.js"></script>
+      <script>
+    $(function() {
+      
+    });
+</script>
 
 
     </body>

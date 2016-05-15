@@ -1,42 +1,45 @@
 body, html, input, textarea, select{
-	color: #4d4d4d;
+    color: #4d4d4d;
     font: 14px "Helvetica Neue",Arial,Helvetica,sans-serif;
     line-height: 18px;
 }
 
 body{
-	width: 100%;
-	overflow-y:auto;
+    width: 100%;
+    overflow-x:scroll; 
+    white-space: nowrap;
+
 }
 
 #header{
-	width: 100%;
-	height: 40px;
-	/*background-color: #1e88e5;
-	color:rgba(255,255,255,1);*/
-	background-color: white;
-	color: rgba(0,0,0,0.5);
-	line-height: 40px;
-	text-align: center;
+    width: 100%;
+    height: 40px;
+    /*background-color: #1e88e5;
+    color:rgba(255,255,255,1);*/
+    background-color: white;
+    color: rgba(0,0,0,0.5);
+    line-height: 40px;
+    text-align: center;
 }
 
 #board_info{
 
-	width: 100%;
-	height: 40px;
-	color:rgba(0,0,0,0.5);
-	line-height: 40px;
-	font-size: 20px;
-	margin: 10px 0 10px 20px;
+    width: 100%;
+    height: 40px;
+    color:rgba(0,0,0,0.5);
+    line-height: 40px;
+    font-size: 20px;
+    margin: 10px 0 10px 20px;
 }
 
 #board_canvas{
 
-	width: 100%;
-	height: 100%;
-/*	border:1px solid black;*/
-    position: relative;
+    width: 100%;
+    height: 100%;
+/*  border:1px solid black;*/
+    position: absolute;
     white-space: nowrap;
+
 }
 
 #board_canvas .list_wrapper{
@@ -47,14 +50,12 @@ body{
     box-sizing: border-box;
     display: inline-block;
     vertical-align: top;
-    white-space: nowrap;
-	cursor: pointer;
-	float:left;
+    cursor: pointer;
 }
 
 #board_canvas .list_wrapper .list_content{
 
-	background: #e2e4e6;
+    background: #e2e4e6;
     border-radius: 3px;
     box-sizing: border-box;
     display: flex;
@@ -68,61 +69,69 @@ body{
 }
 
 .list_header{
-	width: 100%;
-	display: table;
-	padding: 10px 0 0 10px;
-	/*font: 14px "Helvetica Neue",Arial,Helvetica,sans-serif;*/
-	font:Roboto;
-	margin-bottom: 5px;
+    width: 100%;
+    display: table;
+    padding: 10px 0 0 10px;
+    /*font: 14px "Helvetica Neue",Arial,Helvetica,sans-serif;*/
+    font:Roboto;
+    margin-bottom: 5px;
 }
 
 .list_header textarea{
-	flex-direction: column;
-    resize: auto;
+    flex-direction: column;
+    resize: none;
     cursor: auto;
     white-space: pre-wrap;
     background: 0 0;
     border: none;
-    border-radius: 3px;
-    box-shadow: none;
-    font-weight: 700;
     margin: -3px -5px;
     min-height: 18px;
     padding: 3px 5px;
-    resize: none;
-    transition: background 85ms ease-in,border-color 85ms ease-in;
     width: 100%;
-    color: #4d4d4d;
-    font: 14px "Helvetica Neue",Arial,Helvetica,sans-serif;
-    line-height: 18px;
-    -webkit-rtl-ordering: logical;
-    -webkit-user-select: text;
-    flex-direction: column;
-    text-rendering: auto;
-    color: initial;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: start;
-    color: #4d4d4d;
-    font: 14px "Helvetica Neue",Arial,Helvetica,sans-serif;
-    line-height: 18px;
     height: 24px;
-    text-rendering: auto;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    text-align: start;
+    color: #4d4d4d;
+    line-height: 18px;
 }
 
+.list_wrapper .card_composer{
+
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    margin-bottom: 6px;
+    max-width: 300px;
+    min-height: 20px;
+    position: relative;
+    z-index: 0;
+    white-space: normal;
+/*    display: none;*/
+
+    }
+
+.list_wrapper .card_composer .add_card_form{
+    display: none;
+}
+
+.list_wrapper .card_composer .add_card_form a{
+    color:rgba(0,0,0,.5);
+    margin-top: 5px;
+}
+
+.list_wrapper .card_composer .add_card_form a.card_cancel{
+   margin-left: 10px;
+}
+
+
+.list_wrapper .card_composer textarea{
+
+    background-color: #fff;
+    border-radius: 5px;
+    letter-spacing: normal;
+    resize: none;
+    border:none;
+}
 .add_card{
 
-	border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px;
     color: #8c8c8c;
     display: block;
     -webkit-box-flex: 0;
@@ -138,37 +147,59 @@ body{
 
 .add_list{
 
-	background: rgba(0,0,0,.12);
+/*  background: rgba(0,0,0,.1);*/
     cursor: pointer;
-    float:left;
     width: 270px;
     border-radius: 3px;
     margin: 0 5px;
-    white-space: nowrap;
+    color: white;
+    display: inline-block;
 }
 
+.add_list .add_list_form a{
+   color:rgba(0,0,0,.5);
+}
+
+.add_list .add_list_form a.cancel{
+   margin-left: 10px;
+}
 
 .placeholder{
-	display: block;
-	padding: 7px;
+    display: block;
+    padding: 7px;
     color: rgba(0,0,0,.5);
     padding: 7px;
 }
 
-.list_name_input{
 
-	 background: 0 0;
+.list_add_controls{
+
+    display: none;
+}
+
+.add_list_form{
+    display: none;
+}
+
+
+.add_list form .input-field {
+
+    background: 0 0;
+    width: 90%;
+    height: 60px;
+    border-radius: 5px;
     border-color: transparent;
     box-shadow: none;
     cursor: pointer;
-    display: none;
-    margin: 0;
-    -webkit-writing-mode: horizontal-tb;
+/*    margin-top: 20px;*/
+    text-decoration: none;
+    padding-left: 5px;
+
 }
 
 .list_cards{
 
-	overflow-y: overlay;
+    overflow-y: overlay;
     margin-right: 2px;
     padding: 0 9px 0 5px;
     flex: 1 1 auto;
@@ -180,7 +211,7 @@ body{
 
 
 .list_card{
-	background-color: #fff;
+    background-color: #fff;
     border-bottom: 1px solid #ccc;
     border-radius: 3px;
     cursor: pointer;
@@ -193,7 +224,7 @@ body{
 
 .list_card .list_card_detail{
 
-	overflow: hidden;
+    overflow: hidden;
     padding: 6px 6px 2px 8px;
     position: relative;
     z-index: 10;
@@ -203,7 +234,7 @@ body{
 
 .list_card_detail .list_card_title{
 
-	clear: both;
+    clear: both;
     display: block;
     font-weight: 400;
     margin: 0 0 4px;
@@ -216,14 +247,60 @@ body{
 
 .list_card_detail .list_card_title a{
 
-	background-color: transparent;
+    background-color: transparent;
 }
+
+
+
+.modal .modal_header{
+    margin: 4px 40px 4px 38px;
+    padding: 9pt 9pt 0;
+    position: relative;
+    z-index: 1;
+    display: block;
+}
+
+.modal .modal_header h2{
+    display: none;
+}
+
+.modal .modal_header .modal_title textarea{
+
+    overflow: hidden;
+    word-wrap: break-word;
+    height: 30px;
+    background: 0 0;
+    border: 0;
+    border-radius: 3px;
+    box-shadow: none;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    margin: -4px -6px;
+    min-height: 22px;
+    padding: 4px 6px;
+    resize: none;
 
 }
 
-/*<div class-"list_header">
-                <textarea class="list-header-name"></textarea>
-              </div>
-              <div class="list_cards"></div>
-              <div class="add_card"></div>*/
+.modal .modal_main_col{
+
+    float: left;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0;
+    min-height: 20px;
+    padding: 8px 9pt 9pt;
+    position: relative;
+    width: 546px;
+    z-index: 0;
+
+}
+
+.modal .modal_main_col .card_detail_data{
+
+    margin-left: 38px;
+}
+
+
 
