@@ -13,6 +13,12 @@
     
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <style>
+  #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+  #sortable li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; height: 1.5em; }
+  html>body #sortable li { height: 1.5em; line-height: 1.2em; }
+  .ui-state-highlight { height: 1.5em; line-height: 1.2em; }
+  </style>
     </head>
 
     <body>
@@ -40,10 +46,9 @@
             </div>  
           </div>
 
+              <!--add_list button-->
 
-        <!--add_list button-->
-
-          <div class="add_list" >
+          <div class="add_list not_sortable" >
              <a class="btn-floating btn-large waves-effect waves-light red">
                     <i class="material-icons">add</i>
               </a>
@@ -56,6 +61,8 @@
                   </div>
                 </form>
           </div>
+
+    </div>
 
 
 
@@ -70,6 +77,7 @@
               <textarea class="modal_card_back_title" dir="auto">card name</textarea>
             </div>
          </div>
+
          <div class="modal_header_inline_content">
             <p class="u_inline_block u_bottom">
                 "in list "
@@ -84,23 +92,24 @@
                     <span class="add_comment_icon"></span>
                     <h3>Add Comment</h3>
                 </div>
+
                 <div class="add_comment_contents">
                     <div class="member"></div>
-                    <form>
-                        <div class="comment_frame"><div>
-                    </form>
+                      <form>
+                          <div class="comment_frame"><div>
+                      </form>
                 </div>
-            </div>
 
+            </div>
          </div>
 
 
 
          <div class="window_sidebar"></div>
 
-          <div class="modal-footer">
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">asd</a>
-          </div>
+            <div class="modal-footer">
+              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">asd</a>
+            </div>
 
         </div>
 

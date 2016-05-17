@@ -2,6 +2,8 @@ var TODO = (function (window){
 
 	 'use strict';
 
+	 // var $parnet = $("..");
+
 	 var list_html = "<div class='list_wrapper'>" +
             "<div class='list_content z-depth-1'>" +
                 "<div class='list_header'>"+
@@ -29,11 +31,26 @@ var TODO = (function (window){
 
 		$(".btn-floating").on("click", create_list);
 		$(".save").on("click", add_list);
-		$(".add_card").on("click", add_card);
-		$(".card_save").on("click", card_save);
-		$(".list_cards").on("click", "a", modal);
-		$( "#sortable" ).sortable();
+		$("#board_canvas").on("click",".add_card", add_card);
+		$("#board_canvas").on("click",".card_save", card_save);
+		$("#board_canvas").on("click",".card_cancel", card_cancel);
+		$(".list_cards").on("dblclick", "a", modal);
+		$( "#sortable" ).sortable({
+    		  placeholder: "ui-state-highlight",
+    		  cancel: ".add_list"
+   		 });
+		$(".add_list").removeClass("ui-sortable-handle");
+   		$( "#sortable" ).disableSelection();
 		$(".add_list a.cancel").on("click", cancel);
+		
+	}
+
+	function card_cancel(e){
+
+		console.log("cancel event");
+
+		$(e.target).closest(".card_composer .add_card_form").css('display', 'none');
+		$(e.target).closest(".card_composer").find("a.add_card").css('display', 'block');
 		
 	}
 
@@ -57,8 +74,9 @@ var TODO = (function (window){
 	function add_card(e){
 
 		console.log("asd");
-		$(e.target).parent(".card_composer").find(".add_card_form").css('display', 'block');
-		$(e.target).parent(".card_composer").find("a.add_card").css('display', 'none');
+		// $(this).closest(".card_composer").find()
+		$(e.target).parent().find(".add_card_form").css('display', 'block');
+		$(e.target).parent().find("a.add_card").css('display', 'none');
 	}
 	function card_save(e){
 

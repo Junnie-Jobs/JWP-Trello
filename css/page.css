@@ -39,6 +39,7 @@ body{
 /*  border:1px solid black;*/
     position: absolute;
     white-space: nowrap;
+    margin-left: 10px;
 
 }
 
@@ -95,7 +96,6 @@ body{
 
 .list_wrapper .card_composer{
 
-    border-bottom: 1px solid #ccc;
     cursor: pointer;
     margin-bottom: 6px;
     max-width: 300px;
@@ -109,25 +109,32 @@ body{
 
 .list_wrapper .card_composer .add_card_form{
     display: none;
+    border:none;
 }
 
 .list_wrapper .card_composer .add_card_form a{
     color:rgba(0,0,0,.5);
     margin-top: 5px;
+    margin-left: 9px;
 }
 
 .list_wrapper .card_composer .add_card_form a.card_cancel{
    margin-left: 10px;
 }
 
-
 .list_wrapper .card_composer textarea{
 
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: 3px;
     letter-spacing: normal;
     resize: none;
     border:none;
+    margin-left: 9px;
+    max-width: 248px;  
+    min-height: 20px;
+    position: relative;
+    border-bottom: 1px solid #ccc;
+
 }
 .add_card{
 
@@ -229,7 +236,7 @@ body{
     position: relative;
     z-index: 10;
     background: 0 0;
-        white-space: normal;
+    white-space: normal;
 }
 
 .list_card_detail .list_card_title{
