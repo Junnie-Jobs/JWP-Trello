@@ -257,6 +257,88 @@ body{
     background-color: transparent;
 }
 
+.modal{
+
+    width: 65%;
+    min-height: 90%;
+    overflow: auto;
+    border-radius: 7px;
+    margin-top: -3%;
+
+}
+
+
+.modal .modal_content{
+    padding:1.5em;
+/*    border:1px solid black;*/
+    width: 75%;
+    box-sizing:border-box;
+    float: left;
+}
+.modal .modal_content .list_name{
+    margin-left: 2em;
+    color: #8c8c8c;
+}
+
+.modal .modal_content .description{
+    margin-top: 1em;
+    margin-left: 5em;
+    text-decoration: underline;
+    color: #8c8c8c;
+}
+
+.modal .modal_sidebar{
+
+    width: 25%;
+    height: 100%;
+/*    border:1px solid black;*/
+    box-sizing:border-box;
+    float: left;
+    padding: 15px;
+}
+
+.modal .modal_sidebar .modal_sidebar_btn{
+    margin-top: 0.6em;
+    color:rgba(0,0,0,0.5);
+    width: 170px;
+    height: 40px;
+    line-height: 40px;
+    background-color: white;
+    border-radius: 4px;
+    text-align: left;
+    padding-left:20px;
+    cursor: pointer;
+}
+
+.modal .modal_sidebar h6{
+
+    margin-top: 2em;
+    margin-left: 1em;
+
+    color: rgba(0,0,0,0.6);
+    border-bottom: 1px solid #e2e4e6;
+    width: 70%;
+
+}
+
+.modal .info_about_this_card{
+    width: 100%;
+    height: 30px;
+    border-bottom: 1px solid #e2e4e6;
+}
+
+.modal .info_about_this_card .card_mover{
+    float: left;
+}
+
+.modal .info_about_this_card .time{
+    float: left;
+    margin-left: 10px;
+    font-size: 0.8em;
+    color: #8c8c8c;
+
+}
+
 
 
 .modal .modal_header{
@@ -267,47 +349,85 @@ body{
     display: block;
 }
 
-.modal .modal_header h2{
-    display: none;
-}
-
-.modal .modal_header .modal_title textarea{
-
+.modal .comment_frame textarea{
+    background-color: white;
+    border:none;
+    resize:none;
+    height: 75px;
     overflow: hidden;
-    word-wrap: break-word;
-    height: 30px;
-    background: 0 0;
-    border: 0;
-    border-radius: 3px;
-    box-shadow: none;
-    font-size: 18px;
+    min-height: 75px;
+    color: #4d4d4d;
+    line-height: 18px;
+    padding: 10px;
+    border-radius: 5px;
+
+}
+
+.modal .comment_send{
+
+    width: 85px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #e2e4e6;
+    border-radius: 5px;
+    margin-top: 15px;
+    color: #8c8c8c;
+    cursor: pointer;
+ /*   padding: 7px 20px;*/
+}
+
+
+.modal .comment{
+
+    width: 100%;
+    border-bottom: 1px solid #e2e4e6;
+    padding-bottom: 25px;
+}
+
+.modal .comment .commenter{
+
+    height: 14px;
+    color: #4d4d4d;
     font-weight: 700;
-    line-height: 22px;
-    margin: -4px -6px;
-    min-height: 22px;
-    padding: 4px 6px;
-    resize: none;
+    margin-bottom: 12px;
+
 
 }
 
-.modal .modal_main_col{
+.modal .comment .comment_contents{
 
+    padding: 9px 11px;
+    display: block;
+    cursor: pointer;
+    color: #4d4d4d;
+    font-size: 14px;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 12px;
+    word-wrap:break-word;
+
+}
+
+.modal .comment .comment_date{
+
+    color: #8c8c8c;
+    font-size: 14px;
     float: left;
-    overflow-x: hidden;
-    overflow-y: auto;
-    margin: 0;
-    min-height: 20px;
-    padding: 8px 9pt 9pt;
-    position: relative;
-    width: 546px;
-    z-index: 0;
+}
+
+.modal .comment .comment_reply{
+    color: #8c8c8c;
+    font-size: 14px;
+    float: left;
+    margin-left: 4px;
+    text-decoration: underline;
+    cursor: pointer;
 
 }
 
-.modal .modal_main_col .card_detail_data{
 
-    margin-left: 38px;
-}
 
+/*Add Comment*/
 
 

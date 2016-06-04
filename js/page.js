@@ -42,7 +42,11 @@ var TODO = (function (window){
 		$(".add_list").removeClass("ui-sortable-handle");
    		$( "#sortable" ).disableSelection();
 		$(".add_list a.cancel").on("click", cancel);
-		
+		$("#board_canvas").on("click", ".list_card", modal_trigger);
+	}
+
+	function modal_trigger(e){
+		$('.modal-trigger').leanModal();
 	}
 
 	function card_cancel(e){

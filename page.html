@@ -5,6 +5,7 @@
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link type="text/css" rel="stylesheet" href="css/page.css"  media="screen,projection"/>    
    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
@@ -64,54 +65,62 @@
 
     </div>
 
+<!-- 
+<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal_content">
+      <h5>Card Title</h5>
+      <div class="list_name">
+        <h6 class="list_name">in list List Header</h6>
+      </div>
+      
+      <h6 class="description">Edit the description...</h6></br>
+
+
+      <h5>Add comment</h5>
+      <div class="comment_frame">
+          <textarea class="add_comment z-depth-1" placeholder="Write a comment..."></textarea>
+      </div>
+      <div class="comment_send">Send</div></br>
+
+      <h5>Activity</h5>
+ <!-- <div class="info_about_this_card">
+        <div class="card_mover">JunnnieJobs moved this card from A to B</div>
+        <div class="time">Date & Time</div>
+      </div> -->
+
+      <div class="comment">
+          <div class="commenter">동준 임</div>
+          <div class="comment_contents z-depth-1">이번 작업은 jwp-trello</div>
+          <div class="comment_date">4 Jun 2015 at 15:20 -</div>
+          <div class="comment_reply">Reply</div>
+      </div>
+
+    </div>
 
 
 
 
-     <!-- Modal Structure -->
-        <div id="modal1" class="modal">
-         <div class="modal_header">
-            <span class="modal_header_icon"></span>
-            <div class="modal_title">
-              <h2>Modal Header</h2>
-              <textarea class="modal_card_back_title" dir="auto">card name</textarea>
-            </div>
-         </div>
+    <div class="modal_sidebar">
+        <h5>Add</h5>
+        <div class="modal_sidebar_btn z-depth-1">Members</div>
+        <div class="modal_sidebar_btn z-depth-1">Labels</div>
+        <div class="modal_sidebar_btn z-depth-1">Checklist</div>
+        <div class="modal_sidebar_btn z-depth-1">Due Date</div>
+        <div class="modal_sidebar_btn z-depth-1">Attachment</div>
+        </br>
+        <h5>Actions</h5>
+       <div class="modal_sidebar_btn z-depth-1">Move</div>
+       <div class="modal_sidebar_btn z-depth-1">Copy</div>
+       <div class="modal_sidebar_btn z-depth-1">Subscribe</div>
+       <div class="modal_sidebar_btn z-depth-1">Members</div>
 
-         <div class="modal_header_inline_content">
-            <p class="u_inline_block u_bottom">
-                "in list "
-                <a class="js_open_move_from_header" href="#">list name</a>
-            </p>
-         </div>
+        <h6>Share and more...</h6>
+    </div>
+  </div>
 
-         <div class="modal_main_col">
-            <div class="card_detail_data u_gutter">Edit the description</div>
-            <div class="add_comment_section">
-                <div class="add_comment_title">
-                    <span class="add_comment_icon"></span>
-                    <h3>Add Comment</h3>
-                </div>
-
-                <div class="add_comment_contents">
-                    <div class="member"></div>
-                      <form>
-                          <div class="comment_frame"><div>
-                      </form>
-                </div>
-
-            </div>
-         </div>
-
-
-
-         <div class="window_sidebar"></div>
-
-            <div class="modal-footer">
-              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">asd</a>
-            </div>
-
-        </div>
 
       <!--Import jQuery before materialize.js-->
 
