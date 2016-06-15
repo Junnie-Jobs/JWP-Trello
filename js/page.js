@@ -2,8 +2,6 @@ var TODO = (function (window){
 
 	 'use strict';
 
-	 // var $parnet = $("..");
-
 	 var list_html = "<div class='list_wrapper'>" +
             "<div class='list_content z-depth-1'>" +
                 "<div class='list_header'>"+
@@ -21,41 +19,129 @@ var TODO = (function (window){
             "</div>" +
           "</div>"
 
+      var list_template = Handlebars.compile(list_html);
+
       var card_html = "<div class='list_card'>" +
       						"<div class='list_card_detail'>" +
-                      	 		"<a class='list_card_title modal-trigger' dir='auto' href='#modal1'>{{value}}</a>" +
+                      	 		"<a class='list_card_title modal-trigger modalLink' dir='auto' href='#modalLayer' >{{value}}</a>" +
                      	 	"</div>" +
                       "</div>"
 
+      var comment_html =   "<div class='comment'>" +
+			                    "<div class='commenter'>{writer_name}</div>" +
+			                    "<div class='comment_contents z-depth-1'>{{comment_contents}}</div>" +
+			                    "<div class='comment_date'>{{current_time}} - </div>" +
+			                    "<div class='comment_reply'> Reply</div>" +
+              			  "</div>";
+
+      var comment_template = Handlebars.compile(comment_html);       			             
+
 	function init(){
 
+  		$("#board_canvas").on("click", ".modalLink", show_modal);
 		$(".btn-floating").on("click", create_list);
 		$(".save").on("click", add_list);
 		$("#board_canvas").on("click",".add_card", add_card);
 		$("#board_canvas").on("click",".card_save", card_save);
 		$("#board_canvas").on("click",".card_cancel", card_cancel);
-		$(".list_cards").on("dblclick", "a", modal);
-		$( "#sortable" ).sortable({
-    		  placeholder: "ui-state-highlight",
-    		  cancel: ".add_list"
-   		 });
-		$(".add_list").removeClass("ui-sortable-handle");
    		$( "#sortable" ).disableSelection();
 		$(".add_list a.cancel").on("click", cancel);
-		$("#board_canvas").on("click", ".list_card", modal_trigger);
+		$(".add_list").removeClass("ui-sortable-handle");
+   		$(".file_attachment").on("click", file_upload);
+   		$(".comment_send").on("click", add_comment);
+   		$( "#sortable" ).sortable({
+    		  placeholder: "ui-state-highlight",
+    		  cancel: ".add_list"
+   		});
+   		$(".members_btn").on("click", search_member);
+   		$(".due_date_btn").on("click", setting_date);
+   	 $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
 	}
 
-	function modal_trigger(e){
-		$('.modal-trigger').leanModal();
+	function setting_date(){
+
+		if($(".modal_for_due_date").hasClass("clicked")){
+			$(".modal_for_due_date").removeClass("clicked").slideUp();
+			return;
+		}
+
+		$(".modal_for_due_date").addClass("clicked").slideDown();
+	}
+
+	function search_member(){
+
+		console.log("asd");
+		if($(".modal_for_members").hasClass("clicked")){
+			$(".modal_for_members").removeClass("clicked").slideUp();
+			return;
+		}
+
+		$(".modal_for_members").addClass("clicked").slideDown();
+	}
+
+	function add_comment(e){
+	
+		var comment_contents = $(".comment_contents").val();
+		var now = new Date();
+		var currentTime = now.getDate() + " " +
+					  month_written_english(now.getMonth()+1) + " " +
+					  now.getFullYear() + " at " +
+					  now.getHours() + ":" +
+					  now.getMinutes();
+		$(comment_template({"comment_contents":comment_contents, "current_time":currentTime})).appendTo(".comments");
+		$(".comment_contents").val("");
+
+
+	}
+
+	function month_written_english(month){
+
+		if(month === 1){
+			return "Jan";
+		}else if(month === 2){
+			return "Feb";
+		}else if(month === 3){
+			return "Mar";
+		}else if(month === 4){
+			return "Apr";
+		}else if(month === 5){
+			return "May";
+		}else if(month === 6){
+			return "Jun";
+		}else if(month === 7){
+			return "July";
+		}else if(month === 8){
+			return "Aug";
+		}else if(month === 9){
+			return "Sep";
+		}else if(month === 10){
+			return "Oct";
+		}else if(month === 11){
+			return "Nov";
+		}else if(month === 12){
+			return "Dec";
+		}
+	}
+
+	function file_upload(){
+		$("#fileUpload").trigger("click");
+	}
+
+	function show_modal(e){
+		$("#modalLayer").fadeIn("slow");
+		var title = $(e.target).text();
+		$(".card_title_in_modal").text(title);
+		var list_name = $(e.target).closest(".list_content").find(".list_header_name").val();
+		$(".list_name").text(list_name);
 	}
 
 	function card_cancel(e){
 
-		console.log("cancel event");
-
 		$(e.target).closest(".card_composer .add_card_form").css('display', 'none');
 		$(e.target).closest(".card_composer").find("a.add_card").css('display', 'block');
-		
 	}
 
 	function cancel(){
@@ -76,8 +162,6 @@ var TODO = (function (window){
 	}
 
 	function add_card(e){
-
-		console.log("asd");
 		// $(this).closest(".card_composer").find()
 		$(e.target).parent().find(".add_card_form").css('display', 'block');
 		$(e.target).parent().find("a.add_card").css('display', 'none');

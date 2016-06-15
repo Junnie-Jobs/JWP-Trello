@@ -10,6 +10,8 @@
    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="js/jquery.fileupload.js"></script>
+  <script src="js/handlebars-v4.0.5.js"></script>
 
     
       <!--Let browser know website is optimized for mobile-->
@@ -23,13 +25,14 @@
     </head>
 
     <body>
+      <div class="shadow_body">
        <div id="header" class="z-depth-1">JWP-Trello</div>
        <div id="board_info">JWP's First Project</div>
        <div id="board_canvas" class="list_sortable">
           <div class="list_wrapper">
             <div class="list_content z-depth-1">
                 <div class="list_header">
-                  <textarea class="list_header_name">First Todo</textarea>
+                  <textarea class="list_header_name" value="First Todo">First Todo</textarea>
                 </div>
 
                 <div class="list_cards">
@@ -47,8 +50,7 @@
             </div>  
           </div>
 
-              <!--add_list button-->
-
+          <!--add_list button-->
           <div class="add_list not_sortable" >
              <a class="btn-floating btn-large waves-effect waves-light red">
                     <i class="material-icons">add</i>
@@ -65,61 +67,108 @@
 
     </div>
 
-<!-- 
-<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
 
   <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-    <div class="modal_content">
-      <h5>Card Title</h5>
-      <div class="list_name">
-        <h6 class="list_name">in list List Header</h6>
-      </div>
-      
-      <h6 class="description">Edit the description...</h6></br>
 
+  <div id="modalLayer" class="z-depth-1">
+     <button type="button" class="close_button">X</button>
+     <div class="modal_content">
+           <p class="card_title_in_modal">{{card_title}}</p>
 
-      <h5>Add comment</h5>
-      <div class="comment_frame">
-          <textarea class="add_comment z-depth-1" placeholder="Write a comment..."></textarea>
-      </div>
-      <div class="comment_send">Send</div></br>
+            <div class="list_name_wrapper">
+                <span class="in_list">in list</span>
+                <span class="list_name">{{list_name}}</span>
+            </div>
 
-      <h5>Activity</h5>
- <!-- <div class="info_about_this_card">
-        <div class="card_mover">JunnnieJobs moved this card from A to B</div>
-        <div class="time">Date & Time</div>
-      </div> -->
+            <p>Add comment</p>
+            <div class="comment_frame">
+                 <textarea class="comment_contents z-depth-1" placeholder="Write a comment..."></textarea>
+            </div>
+            <div class="comment_send">Send</div></br>
 
-      <div class="comment">
-          <div class="commenter">동준 임</div>
-          <div class="comment_contents z-depth-1">이번 작업은 jwp-trello</div>
-          <div class="comment_date">4 Jun 2015 at 15:20 -</div>
-          <div class="comment_reply">Reply</div>
-      </div>
-
+            <p>Activity</p>
+            <div class="comments">
+               
+            </div>
     </div>
 
+     <div class="modal_sidebar">
+      <input type="date" class="datepicker">
+              <p>Add</p>
+              <div class="modal_sidebar_btn z-depth-1 members_btn">Members</div>
+
+                  <div class="modal_for_members z-depth-1">
+                    <div class="members_btn_header">Members</div>
+                    <div class="search_member">
+                      <input class="" type="text" placeholder="Search members" />
+                    </div>
+                  </div>
+
+              <div class="modal_sidebar_btn z-depth-1 due_date_btn">Due Date</div>
+
+                  <div class="modal_for_due_date z-depth-1">
+                    <div class="due_date_btn_header">Change Due Date</div>
+                    <form class="dpicker_widget">
+                      <div class="datapicker_select_date">
+                          <label for="date">Date</label></br>
+                          <input class="datapicker_select_input" type="text" placeholder="17/6/2016"/>
+                      </div>
+
+                      <div class="datapicker_select_time">
+                          <label for="time">Time</label></br>
+                          <input class="datapicker_select_input" type="text" placeholder="12:00" tabindex="101"/>
+                      </div>
+
+                      <div class="pickers">
+                          <div class="picker_header">
+                              <div class="pick_prev">Prev</div>
+                              <div class="pick_month">June</div>
+                              <div class="pick_year">2016</div>
+                              <div class="pick_next">Next</div>
+                          </div>
+                          <table cellpadding="0" cellspacing="0" class="pick_date_table">
+                              <thead>
+                                <tr>
+                                  <th scope="col">
+                                    <abbr title="Monday">Mo</abbr>
+                                  </th>
+                                  <th scope="col">
+                                    <abbr title="Tuesday">Tu</abbr>
+                                  </th>
+                                  <th scope="col">
+                                    <abbr title="Wednesday">We</abbr>
+                                  </th>
+                                  <th scope="col">
+                                    <abbr title="Thursday">Th</abbr>
+                                  </th>
+                                  <th scope="col">
+                                    <abbr title="Friday">Fr</abbr>
+                                  </th>
+                                  <th scope="col">
+                                    <abbr title="Saturday">Sa</abbr>
+                                  </th>
+                                  <th scope="col">
+                                    <abbr title="Sunday">Su</abbr>
+                                  </th
+                                </tr>
+                              </thead>
+                          </table>
+                      </div>
 
 
 
-    <div class="modal_sidebar">
-        <h5>Add</h5>
-        <div class="modal_sidebar_btn z-depth-1">Members</div>
-        <div class="modal_sidebar_btn z-depth-1">Labels</div>
-        <div class="modal_sidebar_btn z-depth-1">Checklist</div>
-        <div class="modal_sidebar_btn z-depth-1">Due Date</div>
-        <div class="modal_sidebar_btn z-depth-1">Attachment</div>
-        </br>
-        <h5>Actions</h5>
-       <div class="modal_sidebar_btn z-depth-1">Move</div>
-       <div class="modal_sidebar_btn z-depth-1">Copy</div>
-       <div class="modal_sidebar_btn z-depth-1">Subscribe</div>
-       <div class="modal_sidebar_btn z-depth-1">Members</div>
+                    </form>
+                  </div>
 
-        <h6>Share and more...</h6>
-    </div>
+              <div class="modal_sidebar_btn z-depth-1 file_attachment">Attachment</div>
+              <input type="file" id="fileUpload" name="files[]" />
+      </div>
+    
   </div>
+
+</div>
+  <!-- <div class="member_layer"> -->
+
 
 
       <!--Import jQuery before materialize.js-->
@@ -132,12 +181,5 @@
   </script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
       <script type="text/javascript" src="js/page.js"></script>
-      <script>
-    $(function() {
-      
-    });
-</script>
-
-
     </body>
   </html>
