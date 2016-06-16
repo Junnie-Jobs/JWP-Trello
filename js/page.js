@@ -2,7 +2,7 @@ var TODO = (function (window){
 
 	 'use strict';
 
-	 var list_html = "<div class='list_wrapper'>" +
+	var list_html = "<div class='list_wrapper'>" +
             "<div class='list_content z-depth-1'>" +
                 "<div class='list_header'>"+
                  "<textarea class='list_header_name'>{{input-value}}</textarea>"+
@@ -19,22 +19,24 @@ var TODO = (function (window){
             "</div>" +
           "</div>"
 
-      var list_template = Handlebars.compile(list_html);
+    var list_template = Handlebars.compile(list_html);
 
-      var card_html = "<div class='list_card'>" +
+    var card_html = "<div class='list_card'>" +
       						"<div class='list_card_detail'>" +
                       	 		"<a class='list_card_title modal-trigger modalLink' dir='auto' href='#modalLayer' >{{value}}</a>" +
                      	 	"</div>" +
-                      "</div>"
+                      "</div>";
 
-      var comment_html =   "<div class='comment'>" +
+    var card_template = Handlebars.compile(card_html);
+
+    var comment_html =   "<div class='comment'>" +
 			                    "<div class='commenter'>{writer_name}</div>" +
 			                    "<div class='comment_contents z-depth-1'>{{comment_contents}}</div>" +
 			                    "<div class='comment_date'>{{current_time}} - </div>" +
 			                    "<div class='comment_reply'> Reply</div>" +
               			  "</div>";
 
-      var comment_template = Handlebars.compile(comment_html);       			             
+    var comment_template = Handlebars.compile(comment_html);       			             
 
 	function init(){
 
@@ -47,18 +49,40 @@ var TODO = (function (window){
    		$( "#sortable" ).disableSelection();
 		$(".add_list a.cancel").on("click", cancel);
 		$(".add_list").removeClass("ui-sortable-handle");
-   		$(".file_attachment").on("click", file_upload);
+   		$(".attach_from_computer").on("click", file_upload);
    		$(".comment_send").on("click", add_comment);
    		$( "#sortable" ).sortable({
     		  placeholder: "ui-state-highlight",
     		  cancel: ".add_list"
    		});
+   		$( "#board_canvas" ).sortable();
+  		$( "#board_canvas" ).disableSelection();
    		$(".members_btn").on("click", search_member);
    		$(".due_date_btn").on("click", setting_date);
-   	 $('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15 // Creates a dropdown of 15 years to control year
-  });
+   		$(".file_attachment").on("click", setting_attachment);
+	    $(".datepicker").pickadate({
+			    selectMonths: true, 
+			    selectYears: 15 
+	  	});
+	  	$(".close_button").on("click", close_modal);
+	  	$(".shadow_body").on("click", close_modal);
+	  	$('.modal-trigger').leanModal();
+	}
+
+	function close_modal(){
+
+		$("#modalLayer").fadeOut("slow");
+		$(".shadow_body").fadeOut("slow");
+	}
+
+	function setting_attachment(){
+
+		if($(".modal_for_attachment").hasClass("clicked")){
+			$(".modal_for_attachment").removeClass("clicked").slideUp();
+			return;
+		}
+
+		$(".modal_for_attachment").addClass("clicked").slideDown();
 	}
 
 	function setting_date(){
@@ -69,6 +93,7 @@ var TODO = (function (window){
 		}
 
 		$(".modal_for_due_date").addClass("clicked").slideDown();
+		
 	}
 
 	function search_member(){
@@ -131,6 +156,7 @@ var TODO = (function (window){
 	}
 
 	function show_modal(e){
+		$(".shadow_body").fadeIn("slow");
 		$("#modalLayer").fadeIn("slow");
 		var title = $(e.target).text();
 		$(".card_title_in_modal").text(title);
@@ -171,7 +197,7 @@ var TODO = (function (window){
 		$(".add_card_form").css('display', 'none');
 		var card_text = $(e.target).parent(".add_card_form").find(".list_card_composer_textarea").val();
 		var $list_wrapper = $(e.target).closest(".list_wrapper");
-		var str = card_html.replace(/\{\{value\}\}/gi,card_text);
+		var str = card_template({"value":card_text});
 		$list_wrapper.find(".list_cards").append(str);
 		$(e.target).parent(".add_card_form").find(".list_card_composer_textarea").val("");
 		$(e.target).parents(".card_composer").find("a.add_card").css('display', 'block');
@@ -186,8 +212,6 @@ var TODO = (function (window){
 		$("#add_list").val("");
 		$(".add_list_form").css('display','none');
 		$(".btn-floating").css('display','block');
-
-
 	}
 
 	return {

@@ -1,33 +1,33 @@
 <html>
     <head>
       <meta charset="utf-8">
-      <!--Import Google Icon Font-->
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link type="text/css" rel="stylesheet" href="css/page.css"  media="screen,projection"/>    
-   <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <script src="js/jquery.fileupload.js"></script>
-  <script src="js/handlebars-v4.0.5.js"></script>
-
-    
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <style>
-  #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
-  #sortable li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; height: 1.5em; }
-  html>body #sortable li { height: 1.5em; line-height: 1.2em; }
-  .ui-state-highlight { height: 1.5em; line-height: 1.2em; }
-  </style>
+      <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     </head>
 
     <body>
-      <div class="shadow_body">
-       <div id="header" class="z-depth-1">JWP-Trello</div>
-       <div id="board_info">JWP's First Project</div>
+      <div class="shadow_body"></div>
+       <div id="header" class="z-depth-1">
+           <span>JWP-Trello<span>
+            <a class="modal-trigger z-depth-1" href="#modal1">Member +</a>
+       </div>
+
+       <!-- Modal Structure -->
+          <div id="modal1" class="modal">
+            <div class="modal-content">
+               <div class="add_project_member_header">Add Member</div>
+                <input class="address_for_invitation" type="text" placeholder="e.g. taco@trello.com"/>
+                <div class="invite_for_project">Invite</div>
+            </div>
+          </div>
+
+
+       <div id="board_info">
+          <div class="project_name">JWP's First Project </div>
+       </div>
+
        <div id="board_canvas" class="list_sortable">
           <div class="list_wrapper">
             <div class="list_content z-depth-1">
@@ -50,7 +50,6 @@
             </div>  
           </div>
 
-          <!--add_list button-->
           <div class="add_list not_sortable" >
              <a class="btn-floating btn-large waves-effect waves-light red">
                     <i class="material-icons">add</i>
@@ -67,9 +66,7 @@
 
     </div>
 
-
   <!-- Modal Structure -->
-
   <div id="modalLayer" class="z-depth-1">
      <button type="button" class="close_button">X</button>
      <div class="modal_content">
@@ -93,25 +90,24 @@
     </div>
 
      <div class="modal_sidebar">
-      <input type="date" class="datepicker">
+
               <p>Add</p>
               <div class="modal_sidebar_btn z-depth-1 members_btn">Members</div>
 
                   <div class="modal_for_members z-depth-1">
                     <div class="members_btn_header">Members</div>
                     <div class="search_member">
-                      <input class="" type="text" placeholder="Search members" />
+                      <input type="text" placeholder="Search members" />
                     </div>
                   </div>
 
-              <div class="modal_sidebar_btn z-depth-1 due_date_btn">Due Date</div>
-
-                  <div class="modal_for_due_date z-depth-1">
+              <div class="modal_sidebar_btn z-depth-1 due_date_btn"> Due Date</div>
+                <div class="modal_for_due_date z-depth-1">
                     <div class="due_date_btn_header">Change Due Date</div>
-                    <form class="dpicker_widget">
+                      <form class="dpicker_widget">
                       <div class="datapicker_select_date">
                           <label for="date">Date</label></br>
-                          <input class="datapicker_select_input" type="text" placeholder="17/6/2016"/>
+                          <input class="datepicker datapicker_select_input" type="date" placeholder="17/6/2016"/>
                       </div>
 
                       <div class="datapicker_select_time">
@@ -119,67 +115,28 @@
                           <input class="datapicker_select_input" type="text" placeholder="12:00" tabindex="101"/>
                       </div>
 
-                      <div class="pickers">
-                          <div class="picker_header">
-                              <div class="pick_prev">Prev</div>
-                              <div class="pick_month">June</div>
-                              <div class="pick_year">2016</div>
-                              <div class="pick_next">Next</div>
-                          </div>
-                          <table cellpadding="0" cellspacing="0" class="pick_date_table">
-                              <thead>
-                                <tr>
-                                  <th scope="col">
-                                    <abbr title="Monday">Mo</abbr>
-                                  </th>
-                                  <th scope="col">
-                                    <abbr title="Tuesday">Tu</abbr>
-                                  </th>
-                                  <th scope="col">
-                                    <abbr title="Wednesday">We</abbr>
-                                  </th>
-                                  <th scope="col">
-                                    <abbr title="Thursday">Th</abbr>
-                                  </th>
-                                  <th scope="col">
-                                    <abbr title="Friday">Fr</abbr>
-                                  </th>
-                                  <th scope="col">
-                                    <abbr title="Saturday">Sa</abbr>
-                                  </th>
-                                  <th scope="col">
-                                    <abbr title="Sunday">Su</abbr>
-                                  </th
-                                </tr>
-                              </thead>
-                          </table>
-                      </div>
-
-
-
                     </form>
-                  </div>
-
+                </div>
+  
               <div class="modal_sidebar_btn z-depth-1 file_attachment">Attachment</div>
-              <input type="file" id="fileUpload" name="files[]" />
+
+                  <div class="modal_for_attachment z-depth-1">
+                        <div class="attachment_btn_header">Attach</div>
+                        <input type="file" id="fileUpload" name="files[]" /> 
+                        <div class="attach_from_computer">Computer</div>
+                        <div class="attach_with_link">Attach a link</div>
+                        <input type="text" class="link_for_attachment" placeholder="Paste any link here..." />
+                        <div class="link_submit z-depth-1">Attach</div>
+                  </div>
+              
       </div>
     
   </div>
-
-</div>
-  <!-- <div class="member_layer"> -->
-
-
-
-      <!--Import jQuery before materialize.js-->
-
-      <script>
-  $(function() {
-    $( "#board_canvas" ).sortable();
-    $( "#board_canvas" ).disableSelection();
-  });
-  </script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+      <script src="lib/jquery.fileupload.js"></script>
+      <script src="lib/handlebars-v4.0.5.js"></script>
+      <script type="text/javascript" src="lib/materialize.min.js"></script>
       <script type="text/javascript" src="js/page.js"></script>
     </body>
   </html>
