@@ -1,19 +1,14 @@
+@import url('http://fonts.googleapis.com/earlyaccess/hanna.css');
+@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+
 a{
     color:#000;
 }
 
-body, html, input, textarea, select{
-    color: #4d4d4d;
-    font: 14px "Helvetica Neue",Arial,Helvetica,sans-serif;
-    line-height: 18px;
-}
-
 body{
-
     width: 100%;
     overflow-x:scroll; 
     white-space: nowrap;
-
 }
 
 
@@ -26,6 +21,7 @@ body{
     display: none;
 }
 
+
 #header{
     width: 100%;
     height: 40px;
@@ -33,24 +29,28 @@ body{
     color: rgba(0,0,0,0.5);
     line-height: 40px;
     text-align: center;
-    z-index: 1;
-    position: fixed;
-    top: 0;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 1px;
 }
 
 #header a{
     color: rgba(0,0,0,0.5);
     margin-top: 5px;
-    font-size: 15px;
+    font-size: 13px;
     width: 100px;
     height: 30px;
     text-align: center;
     line-height: 30px;
     cursor: pointer;
     border-radius: 4px;
-    margin-left: 38%;
+    margin-left: 37%;
     position: absolute;
+    font-family: 'nanumgothic', serif;
+}
 
+#header .header_text{
+    font-family: 'Hanna', serif;
 }
 
 #board_info .add_project_member_modal{
@@ -254,7 +254,7 @@ body{
     width: 270px;
     border-radius: 3px;
     margin: 0 5px;
-    color: white;
+    color: rgba(0,0,0,0.5);
     display: inline-block;
 }
 

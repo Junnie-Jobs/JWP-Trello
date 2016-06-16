@@ -1,12 +1,18 @@
+@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+@import url('http://fonts.googleapis.com/earlyaccess/jejuhallasan.css');
+@import url('http://fonts.googleapis.com/earlyaccess/hanna.css');
+
 #header{
 	width: 100%;
 	height: 40px;
-/*	background-color: #42a5f5;*/
 	background-color: white;
-/*	color:rgba(255,255,255,1);*/
 	color: rgba(0,0,0,0.5);
 	line-height: 40px;
 	text-align: center;
+	font-weight: 700;
+	font-family: 'Hanna', serif;
+	font-size: 20px;
+	letter-spacing: 1px;
 }
 
 #my_board{
