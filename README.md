@@ -12,7 +12,7 @@
 
 ## 디자인
 
-템플릿의 디자인은 기본적으로 http://materializecss.com를 이용하여 기본적인 material design에 충실하기 위해 노력하였습니다. 여기에 서비스 내용에 좀 더 부합하기 위해 약간의 변형을 가미한 부분도 있습니다. 현재 템플릿에 적용된 main color는 cyan color 계열입니다.
+템플릿의 디자인은 기본적으로 라이브러리( http://materializecss.com )를 이용하여 기본적인 material design에 충실하기 위해 노력하였습니다. 여기에 서비스 내용에 좀 더 부합하기 위해 약간의 변형을 가미한 부분도 있습니다. 현재 템플릿에 적용된 main color는 cyan color 계열입니다.
 
 
 ## 기타
