@@ -7,6 +7,7 @@ body {
     -o-background-size: cover;
     background-size: cover;
     margin: 0;
+
 }
 
 .background {
@@ -34,6 +35,7 @@ header .header-wrapper{
     position: relative;
     display: block;
     height: 100%;
+
 }
 
 header .header-wrapper .brand-logo{
@@ -52,10 +54,12 @@ header .header-wrapper .brand-logo{
 }
 
 header .header-wrapper ul {
+
     float: right;
     margin: 0;
     padding: 0;
     height: 100%;
+
 }
 
 header .header-wrapper li {
@@ -80,12 +84,14 @@ header .header-wrapper li a{
     font-family: 'Noto Sans Light',sans-serif;
     font-weight: 100;
     transition: all .5s ease 0s;
+
 }
 
 header .header-wrapper li a:hover{
 
     background-color: rgba(0,0,0,0.1);
     color: white;
+
 }
 
 .title-area {
@@ -107,22 +113,31 @@ header .header-wrapper li a:hover{
   margin: 25% auto 0 auto;
   text-align: center;
   letter-spacing: 10px;
+
 }
 
 @media only screen and (max-width: 400px){
+
   .title-area { margin-top:  70%; }
+
 }
 
 @media only screen and (min-width: 401px) and (max-width: 600px) {
+
   .title-area { margin-top:  50%; }
+
 }
 
 @media only screen and (min-width: 601px) and (max-width: 799px) {
+
   .title-area { margin-top:  40%; }
+
 }
 
 @media only screen and (min-width: 800px) and (max-width: 900px) {
+
   .title-area { margin-top:  37%; }
+
 }
 
 .title-area .subtitle {
@@ -137,8 +152,5 @@ header .header-wrapper li a:hover{
     margin: 10px auto 0 auto;
     text-align: center;
     letter-spacing: 4px;
-    font-family: Calibri, Trebuchet, sans-serif;
-
-
 
 }

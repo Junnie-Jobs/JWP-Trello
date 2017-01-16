@@ -4,7 +4,7 @@ var BOARDS = (function (window){
 
 	function init(){
 
-    $("#modal").modal();
+    	$("#modal").modal();
 		$(".board-list").on("click", ".board", gotoBoard);
 		$(".add-board-btn").on("click", showCreateBoardForm);
 		$(".add-board-form .save").on("click", createNewBoard);
@@ -19,20 +19,28 @@ var BOARDS = (function (window){
 
 	function createNewBoard(){
 
-		var board_name = $(".board-name").val();
+		var boardName = $(".board-name").val();
 
-		if(board_name == ""){
+		if(boardName == ""){
 			$(".warning").css("display","block");
 			return;
-		} else {
-            $(".warning").css("display","none");
-            var str = Template.board.replace(/\{\{input-value\}\}/gi,board_name);
-            $(".board-name").val("");
-            $("#modal").modal("close");
-			$(".board-list").append(str);
 		}
 
-  }
+		// $.ajax({
+		//
+		// }).done(function(){
+
+            $(".warning").css("display","none");
+            var str = Template.board.replace(/\{\{input-value\}\}/gi,boardName);
+            $(".board-name").val("");
+            $("#modal").modal("close");
+            $(".board-list").append(str);
+
+		// }).fail(function(){
+        //
+		// });
+
+    }
 
 	function gotoBoard(){
 
