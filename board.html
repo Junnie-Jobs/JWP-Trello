@@ -76,7 +76,9 @@
   </div>
 
   <!--------------------  Card Modal HTML-------------------------------->
+
   <div id="modal" class="modal">
+    <div class="close-moadl"></div>
     <div class="modal-content">
       <p class="card-title-in-modal">{{card-title}}</p>
 
@@ -85,11 +87,24 @@
         <span class="deck-name">{{deck-name}}</span>
       </div>
 
+      <p class="card-description-edit-btn">
+        Edit the description
+      </p>
+      <div class="card-description-edit">
+        <textarea class="card-description-textarea"></textarea>
+        <div class="edit-controls">
+          <button class="btn waves-effect waves-light card-edit-save">Save</button>
+          <button class="btn waves-effect waves-light card-edit-close">Cancel</button>
+        </div>
+      </div>
+
+      <div class="card-description"></div>
+
       <p>Add comment</p>
       <div class="comment-frame">
         <textarea class="comment-contents z-depth-1" placeholder="Write a comment..."></textarea>
       </div>
-      <div class="comment-send">Send</div></br>
+      <div class="comment-send btn waves-effect waves-light">Send</div></br>
 
       <p>Activity</p>
       <div class="comments">
@@ -139,11 +154,13 @@
 
     </div>
   </div>
+
   <!----------------------------------------------------------------->
 
   <!--------------------  Warning Modal HTML-------------------------------->
 
     <div id="warning-modal" class="modal">
+     <div class="close-moadl"></div>
      <div class="modal-content">
        <h5>Please Write Contents!</h5>
      </div>

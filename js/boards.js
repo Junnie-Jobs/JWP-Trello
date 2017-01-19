@@ -8,6 +8,7 @@ var BOARDS = (function (window){
 		$(".board-list").on("click", ".board", gotoBoard);
 		$(".add-board-btn").on("click", showCreateBoardForm);
 		$(".add-board-form .save").on("click", createNewBoard);
+		$(".close-moadl").on("click", closeModal);
 
 	}
 
@@ -47,6 +48,13 @@ var BOARDS = (function (window){
 		window.location.href = ("board.html");
 
 	}
+
+	function closeModal(){
+
+        $("#modal").modal("close");
+
+	}
+
 
 	return {
 		"init" : init

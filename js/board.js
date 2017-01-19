@@ -10,6 +10,7 @@ var BOARD = (function (window){
 
 		$("#modal").modal();
 		$("#warning-modal").modal();
+		$(".close-moadl").on("click", closeModal)
 		$(".members-btn").on("click", showMembers);
 		$("#board-canvas").on("click",".add-card-btn", showCreateCardForm);
     	$("#board-canvas").on("click",".save-card", saveCard);
@@ -27,6 +28,24 @@ var BOARD = (function (window){
    		$(".due-date-btn").on("click", setDate);
    		$(".file-attachment").on("click", setAttachment);
 		$(".members-btn-in-card").on("click", searchMember);
+		$(".card-description-edit-btn").on("click", showCardDescriptionEdit);
+		$(".card-edit-close").on("click", closeCardEdit);
+        $(".card-edit-save").on("click", saveCardEdit);
+	}
+
+	function closeModal(e){
+
+
+		var modalName = $(e.target).closest(".modal").attr('id');
+
+		if(modalName === "modal") {
+
+			$("#modal").modal("close");
+
+		}else if(modalName === "warning-modal") {
+
+            $("#warning-modal").modal("close");
+		}
 
 	}
 
@@ -138,7 +157,9 @@ var BOARD = (function (window){
 			return;
 		}
 
-		$(".modal-for-attachment").addClass("clicked").slideDown();
+		$(".modal-for-due-date").removeClass("clicked").slideUp();
+		$(".modal-for-members").removeClass("clicked").slideUp();
+		$(".modal-for-attachment").addClass("clicked").slideDown("slow", "easeInOutQuart");
 	}
 
 	function setDate(){
@@ -148,7 +169,9 @@ var BOARD = (function (window){
 			return;
 		}
 
-		$(".modal-for-due-date").addClass("clicked").slideDown();
+        $(".modal-for-attachment").removeClass("clicked").slideUp();
+        $(".modal-for-members").removeClass("clicked").slideUp();
+		$(".modal-for-due-date").addClass("clicked").slideDown("slow", "easeInOutQuart");
 
 	}
 
@@ -159,7 +182,9 @@ var BOARD = (function (window){
 			return;
 		}
 
-		$(".modal-for-members").addClass("clicked").slideDown();
+        $(".modal-for-attachment").removeClass("clicked").slideUp();
+        $(".modal-for-due-date").removeClass("clicked").slideUp();
+		$(".modal-for-members").addClass("clicked").slideDown("slow", "easeInOutQuart");
 	}
 
 	function addComment(e){
@@ -219,6 +244,59 @@ var BOARD = (function (window){
 			$("#fileUpload").trigger("click");
 
 		}
+
+	function showCardDescriptionEdit(e){
+
+		$(".card-description-edit").css("display","block");
+        $(".card-description-edit-btn").css("display","none");
+
+        var descriptionContent = $(".card-description").text();
+
+        if($(".card-description").text() != null){
+
+            $(".card-description-textarea").val(descriptionContent);
+            $(".card-description").css("display", "none");
+		}
+
+	}
+
+	function closeCardEdit(){
+
+        $(".card-description-edit").css("display","none");
+        $(".card-description-edit-btn").css("display","block");
+        $(".card-description").css("display","block");
+
+	}
+
+	function saveCardEdit(){
+
+
+        var description = $(".card-description-textarea").val();
+
+        if(description == ""){
+
+            $("#warning-modal").modal('open');
+            return;
+
+		}
+
+        // $.ajax({
+        //
+        // }).done(function(){
+
+      		  $(".card-description-textarea").val("");
+        	  $(".card-description").text(description);
+       		  $(".card-description-edit").css("display","none");
+       		  $(".card-description-edit-btn").css("display","block");
+		      $(".card-description").css("display","block");
+
+
+        // }).fail(function(){
+        //
+        // });
+
+
+	}
 
 	return {
 		"init" : init
