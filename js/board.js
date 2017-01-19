@@ -31,6 +31,8 @@ var BOARD = (function (window){
 		$(".card-description-edit-btn").on("click", showCardDescriptionEdit);
 		$(".card-edit-close").on("click", closeCardEdit);
         $(".card-edit-save").on("click", saveCardEdit);
+        $(".datepicker").on("change", setDueDate);
+
 	}
 
 	function closeModal(e){
@@ -189,7 +191,14 @@ var BOARD = (function (window){
 
 	function addComment(e){
 
-		var commentContents = $(".comment-contents").val();
+		var commentContent = $(".comment-contents").val();
+
+		if(commentContent == ""){
+
+            $("#warning-modal").modal('open');
+            return;
+
+		}
 
         // $.ajax({
         //
@@ -201,7 +210,7 @@ var BOARD = (function (window){
 				now.getFullYear() + " at " +
 				now.getHours() + ":" +
 				now.getMinutes();
-			$(commentTemplate({"comment-contents":commentContents, "current-time":currentTime})).appendTo(".comments");
+			$(commentTemplate({"comment-contents":commentContent, "current-time":currentTime})).appendTo(".comments");
 			$(".comment-contents").val("");
 
         // }).fail(function(){
@@ -295,6 +304,13 @@ var BOARD = (function (window){
         //
         // });
 
+
+	}
+
+	function setDueDate(){
+
+		var dueDate = $(".datepicker").val();
+		$(".current-due-date").text(dueDate);
 
 	}
 

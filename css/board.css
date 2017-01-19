@@ -645,6 +645,27 @@ body #modal{
 
 }
 
+#modal .modal-content .card-title-in-modal{
+
+  width: 400px;
+  margin-top: 13px;
+  display: inline-block;
+
+}
+
+#modal .modal-content .due-date-notification{
+
+  box-sizing: border-box;
+  vertical-align: middle;
+  display: inline-block;
+  margin-top: -6px;
+  margin-left: 48px;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgba(0,0,0,0.6);
+
+}
+
 #modal .modal-content .card-title-in-modal, #modal .modal-content p{
 
   color: rgba(0,0,0,0.6);
@@ -669,6 +690,23 @@ body #modal{
   text-decoration: underline;
 
 }
+
+#modal .modal-content .deck-name-and-current-due-date-wrapper {
+
+  width: 540px;
+}
+
+#modal .modal-content .deck-name-and-current-due-date-wrapper .current-due-date{
+
+  display: inline-block;
+  float: right;
+  box-sizing: border-box;
+  margin-right: 8px;
+  color: #8c8c8c;
+  cursor: pointer;
+
+}
+
 
 #modal .modal-content .card-description-edit-btn{
 
